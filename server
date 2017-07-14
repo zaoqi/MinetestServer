@@ -1,14 +1,21 @@
 #!/bin/bash
 ./pull
 loop() {
-	while sleep 30s ;do
+	while sleep 60s ;do
 		./push
 	done
 }
+end() {
+	wait -n
+	kill %1
+	kill %2
+	kill %3
+	./push
+}
+trap "end" SIGINT SIGTERM
+
 ./minetest/bin/minetest --server --worldname Save &
 ./tunnels &
 loop &
-wait -n
-kill %1
-kill %2
-kill %3
+
+end

@@ -6,7 +6,6 @@ loop() {
 	done
 }
 end() {
-	wait -n
 	kill %1
 	kill %2
 	kill %3
@@ -18,4 +17,5 @@ trap "end" SIGINT SIGTERM
 ./tunnels &
 loop &
 
+wait -n
 end

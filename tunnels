@@ -1,3 +1,12 @@
-#!/bin/sh
-./dtunnel_lite -service :31234 -tcp
-./dtunnel -reg mts -local :31234
+#!/bin/bash
+end() {
+	kill %1
+	kill %2
+}
+trap "end" SIGINT SIGTERM
+
+./dtunnel_lite -service :31234 -tcp &
+./dtunnel -reg mts -local :31234 &
+
+wait -n
+end

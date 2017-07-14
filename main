@@ -7,7 +7,6 @@ loop() {
 	done
 }
 end() {
-	wait -n
 	kill %1
 	kill %2
 }
@@ -16,4 +15,5 @@ trap "end" SIGINT SIGTERM
 loop &
 ./minetest/bin/minetest &
 
+wait -n
 end

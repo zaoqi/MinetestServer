@@ -1,0 +1,6 @@
+#!/bin/sh
+OPWD=$PWD
+cd minetest/worlds/Save
+git add .
+git commit -m _
+git push -f https://$(cat $OPWD/usr):$(cat $OPWD/pwd)@$(cat $OPWD/repo)

@@ -1,0 +1,2 @@
+#!/bin/sh
+./dtunnel -reg mts -local :30000

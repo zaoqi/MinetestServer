@@ -1,0 +1,3 @@
+#!/bin/sh
+cd minetest/worlds/Save
+git pull -f

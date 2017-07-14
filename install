@@ -1,0 +1,16 @@
+#!/bin/sh
+if [ ! -d minetest ] ;then
+	./installcompiler || exit
+	(git clone --depth 1 https://github.com/minetest/minetest.git &&
+	cd minetest/games &&
+	git clone --depth 1 https://github.com/minetest/minetest_game.git) || exit
+fi
+if [ ! -d minetest/worlds/Save ] ;then
+	(OPWD=$PWD
+	mkdir -p minetest/worlds &&
+	cd minetest/worlds &&
+	git clone https://$(cat $OPWD/repo) &&
+	git config --local user.email minetestserver@inbox.lv &&
+	git config --local user.name MinetestServer)  || exit
+fi
+./upgrade

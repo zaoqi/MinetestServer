@@ -1,2 +1,3 @@
 #!/bin/sh
-./dtunnel -reg mts -local :30000
+./dtunnel_lite -service :31234 -tcp
+./dtunnel -reg mts -local :31234

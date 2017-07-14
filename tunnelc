@@ -1,2 +1,3 @@
 #!/bin/sh
-./dtunnel -link mts -local :30000
+./dtunnel -link mts -local :31234
+./dtunnel_lite -service 127.0.0.1:1234 -action udp:127.0.0.1:30000 -local :30000 -session_timeout 30 -tcp

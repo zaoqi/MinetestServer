@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 ./pull
 loop() {
-	while sleep 5s ;do
+	while sleep 30s ;do
 		./push
 	done
 }

@@ -1,0 +1,14 @@
+#!/bin/sh
+./pull
+loop() {
+	while sleep 5s ;do
+		./push
+	done
+}
+./minetest/bin/minetest --server --worldname Save &
+./tunnels &
+loop &
+wait -n
+kill %1
+kill %2
+kill %3

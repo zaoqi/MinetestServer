@@ -1,0 +1,14 @@
+#!/bin/sh
+./install
+loop() {
+	while true ;do
+		./tunnelc
+		./server
+	done
+}
+loop &
+./minetest/bin/minetest &
+wait -n
+kill %1
+kill %2
+

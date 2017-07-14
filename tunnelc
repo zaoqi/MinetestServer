@@ -5,8 +5,8 @@ end() {
 }
 trap "end" SIGINT SIGTERM
 
-./dtunnel -link mts -local :31234
-./dtunnel_lite -service 127.0.0.1:1234 -action udp:127.0.0.1:30000 -local :30000 -session_timeout 30 -tcp
+./dtunnel -link mts -local :31234 &
+./dtunnel_lite -service 127.0.0.1:31234 -action udp:127.0.0.1:30000 -local :30000 -session_timeout 30 -tcp &
 
 wait -n
 end
